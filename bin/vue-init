@@ -114,25 +114,7 @@ function run () {
       logger.fatal('Local template "%s" not found.', template)
     }
   } else {
-    checkVersion(() => {
-      if (!hasSlash) {
-        // use official templates
-        const officialTemplate = 'vuejs-templates/' + template
-        if (template.indexOf('#') !== -1) {
-          downloadAndGenerate(officialTemplate)
-        } else {
-          if (template.indexOf('-2.0') !== -1) {
-            warnings.v2SuffixTemplatesDeprecated(template, inPlace ? '' : name)
-            return
-          }
-
-          // warnings.v2BranchIsNowDefault(template, inPlace ? '' : name)
-          downloadAndGenerate(officialTemplate)
-        }
-      } else {
-        downloadAndGenerate(template)
-      }
-    })
+    downloadAndGenerate(template)
   }
 }
 
