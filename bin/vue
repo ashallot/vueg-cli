@@ -7,3 +7,4 @@ require('commander')
   .command('list', 'list available official templates')
   .command('build', 'prototype a new project')
   .parse(process.argv)
+  
